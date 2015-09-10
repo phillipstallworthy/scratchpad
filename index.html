@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html>
-<title>HTML Tutorial</title>
+    <title>HTML Tutorial</title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
     <script src="src/maths.js"></script>
-<body>
+    <body>
+        <h1>Uler</h1>
+        <p>Multiplication</p>
+        <input id="number1" type="number"> x
+        <input id="number2" type="number">
+        <div id="output" class="inline"></div>
+        <div class="inline">
+            <button onclick="maths.myFunction(number1.value, number2.value, 'output')">equals</button>
+        </div>
 
-<h1>This is a headng</h1>
-<p>This is a paragraph.</p>
+        <br/>
+        <p>fibonacci</p>
+        <div class="inline">
+            limit
+            <input id="limit" type="number">
+            <button onclick="maths.fibonacci(limit.value, 'fib_out')">Fib</button>
+            <div id="fib_out"></div>
+        </div>
 
-<p>Please input some number</p>
-<input id="number1" type="number">
-<input id="number2" type="number">
-<p id="output"></p>
-
-<button onclick="maths.myFunction(number1.value, number2.value, 'output')">Click</button>
-
-    <br/>
-    <br/>
-<input id="limit" type="number">
-<p id="fib_out"></p>
-<button onclick="maths.fibonacci(limit.value, 'fib_out')">Fib</button>
+    </br>
+    <p>Euler1</p>
+    <input id="euler1" type="number">
+    <input id="euler2" type="number">
+    <input id="euler3" type="number">
+    <div id="euler4" class="inline"></div>
+    <div class="inline">
+        <button onclick="maths.euler1(euler1.value, euler2.value, euler3.value, 'euler4')">equals</button>
+    </div>
 
 </body>
 </html>

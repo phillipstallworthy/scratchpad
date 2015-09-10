@@ -28,7 +28,7 @@ maths.myFunction = function (number1, number2, output) {
  * @param {string] id of element to send the answer to
  */
 maths.fibonacci = function(limit, output) {
-  var answer = maths.fib_calc_short([0, 1], 99999999999999);
+  var answer = maths.fib_calc([0, 1], limit);
   document.getElementById("fib_out").innerHTML = answer;
   return answer;
 
@@ -41,7 +41,7 @@ maths.fibonacci = function(limit, output) {
  * @param {number} array to start [0,1] or [1,1]
  * @param {number] limit of calculation
  */
-maths.fib_calc_long = function(fib_array, limit){
+maths.fib_calc = function(fib_array, limit){
 
   var last = fib_array[fib_array.length -1];
   var penulitmate = fib_array[fib_array.length - 2];
@@ -53,8 +53,33 @@ maths.fib_calc_long = function(fib_array, limit){
     return fib;
   }
 
-  var result = maths.fib_calc_long(fib, limit); // recursion!!
+  var result = maths.fib_calc(fib, limit); // recursion!!
   return result;
+};
+
+maths.euler1 = function (x, y, limit, output){
+
+  // instantiate variables, multipler and multiples
+  // that recursion needs.
+  var multipler1 = 1;
+  var multiples1 = [x];
+
+  // call recursive function
+  multiples1 =  maths.multiples_worker(x, multipler1, multiples1, limit);
+
+   var multipler2 = 1;
+  var multiples2 = [y];
+
+  // call recursive function
+  multiples2 =  maths.multiples_worker(x, multipler2, multiples2, limit);
+
+  //add em up
+
+
+  var answer = "crap";
+  document.getElementById(output).innerHTML = answer;
+
+
 };
 
 /**
@@ -99,9 +124,10 @@ maths.multiples = function (x, limit){
  * @param {number] limit
  */
 maths.multiples_worker = function (x, multipler, multiples, limit){
-  if ((x * (multipler + 1)) <= limit){ //prefer to not wrap main function like this.
-    multiples.push(x * (multipler + 1));
-    return maths.multiples_worker(x, multipler+1, multiples, limit); // recursion!!
+  if ((x * (multipler + 1)) >= limit){
+   return multiples;
   }
-  return multiples;
+  multiples.push(x * (multipler + 1));
+  // recursion!!
+  return maths.multiples_worker(x, multipler+1, multiples, limit);
 };

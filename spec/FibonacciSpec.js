@@ -7,7 +7,7 @@ describe("Fibonacci", function() {
   });
 
   it("fibonacci sequence test, last one 72723460248141", function() {
-    var sequence = maths.fib_calc_long([1,1], 99999999999999);
+    var sequence = maths.fib_calc([1,1], 99999999999999);
     var last = sequence[sequence.length -1];
     expect(last).toEqual(72723460248141);
   });
