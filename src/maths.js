@@ -62,22 +62,29 @@ maths.euler1 = function (x, y, limit, output){
   // instantiate variables, multipler and multiples
   // that recursion needs.
   var multipler1 = 1;
-  var multiples1 = [x];
+  var multiples1 = [Number(x)];
 
   // call recursive function
   multiples1 =  maths.multiples_worker(x, multipler1, multiples1, limit);
+  console.log("one " + multiples1);
 
-   var multipler2 = 1;
-  var multiples2 = [y];
+
+  var multipler2 = 1;
+  var multiples2 = [Number(y)];
 
   // call recursive function
-  multiples2 =  maths.multiples_worker(x, multipler2, multiples2, limit);
+  multiples2 =  maths.multiples_worker(y, multipler2, multiples2, limit);
+  console.log("two " + multiples2);
 
+  var allnums = multiples1.concat(multiples2);
   //add em up
+  for (var i = 0, len = allnums.length, total = 0; i < len; i++) {
+    total = total + allnums[i];
+  }
 
 
   var answer = "crap";
-  document.getElementById(output).innerHTML = answer;
+  document.getElementById(output).innerHTML = total;
 
 
 };
