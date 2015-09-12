@@ -32,4 +32,19 @@ describe("Maths Funtions", function() {
     expect(result).toEqual([2,2,4,7,8,9]);
   });
 
+  it("Bubble sort big test", function() {
+    var result = sort.bubbleSort([33,26,22,11,9,4,791,101,273564,2,33874,2,8,2]);
+    expect(result).toEqual([2,2,2,4,8,9,11,22,26,33,101,791,33874,273564]);
+  });
+
+  it("Uniq - simple test", function() {
+    var result = sort.uniq([2,2,4,7,8,9]);
+    expect(result).toEqual([2,4,7,8,9]);
+  });
+
+  it("Uniq - multiple idenicals", function() {
+    var result = sort.uniq([2,2,4,7,7,7,8,9,9,9,9]);
+    expect(result).toEqual([2,4,7,8,9]);
+  });
+
 });

@@ -32,9 +32,7 @@ sort.bubbleSort = function (input) {
   while (swapped){
     swapped = Boolean(false);
     for(var i = 0 ; i < len; i++){
-      console.log(i);
       if (output[i] > output[i+1]){
-        console.log("swap");
         var temp = output[i];
         output[i] = output[i+1];
         output[i+1] = temp;
@@ -42,6 +40,25 @@ sort.bubbleSort = function (input) {
       }
     }
   }
-  //return [2,2,4,7,8,9];
+  return output;
+};
+
+/**
+* Remove the unique numbers from an array
+*
+* @param {number []} array of numbers
+* @returns {number []} array of unique numbers
+*/
+
+sort.uniq = function (input) {
+  var len = input.length - 1;
+  var output = input;
+  for(var i = 0 ; i < len; i++){
+    if (output[i] == output[i+1]){
+      output.splice(i+1, 1);
+      len--; // one has been removed.
+      i--; // go back one and try again to catch >2 identicals.
+    }
+  }
   return output;
 };

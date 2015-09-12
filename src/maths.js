@@ -57,6 +57,14 @@ maths.fib_calc = function(fib_array, limit){
   return result;
 };
 
+/**
+*
+* @param
+* @param
+* @param
+* @param
+* @returns
+*/
 maths.euler1 = function (x, y, limit, output){
 
   // instantiate variables, multipler and multiples
@@ -77,13 +85,12 @@ maths.euler1 = function (x, y, limit, output){
   console.log("two " + multiples2);
 
   var allnums = multiples1.concat(multiples2);
+  var uniq = sort.uniq(sort.bubbleSort(allnums));
   //add em up
-  for (var i = 0, len = allnums.length, total = 0; i < len; i++) {
-    total = total + allnums[i];
+  for (var i = 0, len = uniq.length, total = 0; i < len; i++) {
+    total = total + uniq[i];
   }
 
-
-  var answer = "crap";
   document.getElementById(output).innerHTML = total;
 
 
