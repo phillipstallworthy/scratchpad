@@ -27,6 +27,11 @@ describe("Maths Funtions", function() {
     expect(result).toEqual([3,6,9,12,15,18]);
   });
 
+  it("Euler 1 - The real answer - 233168", function() {
+    var result = maths.euler1(3,5,1000);
+    expect(result).toEqual(233168);
+  });
+
   it("Bubble sort simple test", function() {
     var result = sort.bubbleSort([9,4,7,2,8,2]);
     expect(result).toEqual([2,2,4,7,8,9]);

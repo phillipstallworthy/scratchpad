@@ -7,32 +7,40 @@
     <script src="src/maths.js"></script>
     <script src="src/sort.js"></script>
     <body>
-        <h1>Uler</h1>
+        <h1>Euler</h1>
         <p>Multiplication</p>
-        <input id="number1" type="number"> x
-        <input id="number2" type="number">
+        <input id="number1" type="number" value="4"> x
+        <input id="number2" type="number" value="5">
         <div id="output" class="inline"></div>
         <div class="inline">
-            <button onclick="maths.myFunction(number1.value, number2.value, 'output')">equals</button>
+            <button onclick="document.getElementById('output').innerHTML=
+                             maths.myFunction(number1.value, number2.value)">
+                equals</button>
         </div>
 
         <br/>
         <p>fibonacci</p>
         <div class="inline">
             limit
-            <input id="limit" type="number">
-            <button onclick="maths.fibonacci(limit.value, 'fib_out')">Fib</button>
-            <div id="fib_out"></div>
+            <input id="limit" type="number" value="1000">
+            <button onclick="document.getElementById('fib').innerHTML=
+                             maths.fibonacci(limit.value)">
+                Fib</button>
+            <div id="fib"></div>
         </div>
 
     </br>
     <p>Euler1</p>
-    multiple 1 <input id="euler1" type="number">
-    multiple 2 <input id="euler2" type="number">
-    limit <input id="euler3" type="number">
-    <div id="euler4" class="inline"></div>
+    multiple 1 <input id="e1x" type="number" value="3">
+    multiple 2 <input id="e1y" type="number" value="5">
+    limit <input id="e1limit" type="number" value="1000">
+    <div id="e1" class="inline"></div>
     <div class="inline">
-        <button onclick="maths.euler1(euler1.value, euler2.value, euler3.value, 'euler4')">equals</button>
+        <button onclick="document.getElementById('e1').innerHTML=
+                         maths.euler1(e1x.value,
+                         e1y.value,
+                         e1limit.value)">
+            equals</button>
     </div>
 
 </body>

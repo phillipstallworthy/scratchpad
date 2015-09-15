@@ -3,35 +3,30 @@ function maths() {
 }
 
 /**
- * A function to do stuff
+ * A function to multiply two numbers.
  * @param {number} number1
  * @param {number} number2
- * @param {string] id of element to send the answer to
+ * @return {number} the answer
  */
-maths.myFunction = function (number1, number2, output) {
+maths.myFunction = function (number1, number2) {
   var answer;
 
   if (isNaN(number1) || isNaN(number2)) {
     answer = "Input not valid";
   }
   answer = number1 * number2;
-
-  document.getElementById(output).innerHTML = answer;
-
   return answer;
 };
 
 
 /**
  * Calculate the fibonacci sequence.
- * @param {number} number1
- * @param {string] id of element to send the answer to
+ * @param {number} the limit to calculate to
+ * @return {number []} the fibonacci sequence
  */
-maths.fibonacci = function(limit, output) {
+maths.fibonacci = function(limit) {
   var answer = maths.fib_calc([0, 1], limit);
-  document.getElementById("fib_out").innerHTML = answer;
   return answer;
-
 };
 
 /**
@@ -58,14 +53,18 @@ maths.fib_calc = function(fib_array, limit){
 };
 
 /**
+* If we list all the natural numbers below 10 that are multiples of
+* 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+* Find the sum of all the multiples of 3 or 5 below 1000.
 *
-* @param
-* @param
-* @param
-* @param
-* @returns
+* This is a generic function to find the multiples
+*
+* @param {number} x
+* @param {number} y
+* @param {number} limit
+* @returns {number} the sum of all the multiples.
 */
-maths.euler1 = function (x, y, limit, output){
+maths.euler1 = function (x, y, limit){
 
   // instantiate variables, multipler and multiples
   // that recursion needs.
@@ -74,7 +73,6 @@ maths.euler1 = function (x, y, limit, output){
 
   // call recursive function
   multiples1 =  maths.multiples_worker(x, multipler1, multiples1, limit);
-  console.log("one " + multiples1);
 
 
   var multipler2 = 1;
@@ -82,7 +80,6 @@ maths.euler1 = function (x, y, limit, output){
 
   // call recursive function
   multiples2 =  maths.multiples_worker(y, multipler2, multiples2, limit);
-  console.log("two " + multiples2);
 
   var allnums = multiples1.concat(multiples2);
   var uniq = sort.uniq(sort.bubbleSort(allnums));
@@ -91,7 +88,7 @@ maths.euler1 = function (x, y, limit, output){
     total = total + uniq[i];
   }
 
-  document.getElementById(output).innerHTML = total;
+  return total;
 
 
 };
