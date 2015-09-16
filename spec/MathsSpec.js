@@ -12,6 +12,12 @@ describe("Maths Funtions", function() {
     expect(last).toEqual(72723460248141);
   });
 
+  it("Fibonacci sequence test start 1, 2", function() {
+    var sequence = maths.fib_calc([1,2], 89);
+    var last = sequence[sequence.length -1];
+    expect(last).toEqual(89);
+  });
+
   it("Euler 1 multiples test - multiplyer 3, limit 3", function() {
     var result = maths.multiples(3,3);
     expect(result).toEqual([3]);
@@ -50,6 +56,16 @@ describe("Maths Funtions", function() {
   it("Uniq - multiple idenicals", function() {
     var result = sort.uniq([2,2,4,7,7,7,8,9,9,9,9]);
     expect(result).toEqual([2,4,7,8,9]);
+  });
+
+  it("Euler 2 - 89 limit test, answer 44", function() {
+    var result = maths.euler2(89);
+    expect(result).toEqual(44);
+  });
+
+  it("Euler 2 - 4 mil limit, real answer 4613732", function() {
+    var result = maths.euler2(4000000);
+    expect(result).toEqual(4613732);
   });
 
 });

@@ -30,9 +30,24 @@ maths.fibonacci = function(limit) {
 };
 
 /**
+ * Sum up the even fibonacci numbers up to limit
+ * @param {number} limit
+ * @return {number} the sum
+ */
+maths.euler2 = function(limit) {
+  var fib = maths.fib_calc([1, 2], limit);
+  //console.log(fib.toString());
+  var total = 0;
+  for(var i = 0 ; i < fib.length; i++){
+    if (fib[i] % 2 == 0){
+      total = total + fib[i];
+    }
+  }
+  return total;
+};
+
+/**
  * Calculate the fibonacci sequence.
- * Algorithm goes out of it's way to not change the
- * supplied parameters
  * @param {number} array to start [0,1] or [1,1]
  * @param {number] limit of calculation
  */
@@ -68,6 +83,7 @@ maths.euler1 = function (x, y, limit){
 
   // instantiate variables, multipler and multiples
   // that recursion needs.
+  // TODO: array rather than two variables
   var multipler1 = 1;
   var multiples1 = [Number(x)];
 
@@ -82,6 +98,9 @@ maths.euler1 = function (x, y, limit){
   multiples2 =  maths.multiples_worker(y, multipler2, multiples2, limit);
 
   var allnums = multiples1.concat(multiples2);
+
+  //TODO: understand and tidy file loading.
+  //http://stackoverflow.com/questions/950087/include-a-javascript-file-in-another-javascript-file
   var uniq = sort.uniq(sort.bubbleSort(allnums));
   //add em up
   for (var i = 0, len = uniq.length, total = 0; i < len; i++) {
@@ -136,7 +155,7 @@ maths.multiples = function (x, limit){
  */
 maths.multiples_worker = function (x, multipler, multiples, limit){
   if ((x * (multipler + 1)) >= limit){
-   return multiples;
+    return multiples;
   }
   multiples.push(x * (multipler + 1));
   // recursion!!
