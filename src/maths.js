@@ -3,6 +3,78 @@ function maths() {
 }
 
 /**
+* Euler 3 - largest prime factor of some number
+* The prime factors of 13195 are 5, 7, 13 and 29.
+* What is the largest prime factor of the number 600851475143
+* divide by the first prime number
+* @param{number} number to test
+* @return{number} largest prime factor
+*/
+maths.euler3 = function(x){
+  var factors = maths.primeFactors(x);
+  return factors[factors.length - 1];
+};
+
+/**
+* Prime factors of some number
+* Need to add multiples.
+* @param{number} the number to factorise
+* @return{number []} the prime factors of x
+*/
+maths.primeFactors = function(x){
+  var prime = 2;
+  var factors = [];
+  var sqr = Math.sqrt(x);
+  for (var i = 2; i <= sqr; i = maths.nextPrime(i)){
+    if (x % i === 0){
+      factors.push(i);
+    }
+  }
+  return factors;
+};
+
+
+/**
+ * Return the next prime after the supplied number
+ *
+ * @param {number} some number
+ * @return {number} next prime
+ *
+ */
+maths.nextPrime = function(x){
+  x++;
+  while(true){
+    if (maths.prime(x)){
+      return x;
+    }
+    x++;
+  }
+};
+
+/**
+* Prime test.
+* Is the supplied number a prime?
+* @param{number}
+* @return{boolean}
+*/
+maths.prime = function(x){
+  if (x <= 1){return false;}
+  var sqr = Math.sqrt(x);
+  //console.log("the sqaure root of " + x + " equals " + sqr);
+  // is there such a number that is only divisable by it's square root?
+  // time just less than optimisation if so.
+  for (var i = 2; i <= sqr; i++){
+    var mod = x % i;
+    if (mod === 0){
+      //console.log("Mod " + x + " and " + i + " equals " + x % i);
+      return false;
+    }
+  }
+  return true;
+};
+
+
+/**
  * A function to multiply two numbers.
  * @param {number} number1
  * @param {number} number2
@@ -39,7 +111,7 @@ maths.euler2 = function(limit) {
   //console.log(fib.toString());
   var total = 0;
   for(var i = 0 ; i < fib.length; i++){
-    if (fib[i] % 2 == 0){
+    if (fib[i] % 2 === 0){
       total = total + fib[i];
     }
   }

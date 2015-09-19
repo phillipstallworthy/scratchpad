@@ -68,4 +68,31 @@ describe("Maths Funtions", function() {
     expect(result).toEqual(4613732);
   });
 
+  it("Prime test", function() {
+    expect(maths.prime(2)).toEqual(true);
+    expect(maths.prime(3)).toEqual(true);
+    expect(maths.prime(4)).toEqual(false);
+    expect(maths.prime(6)).toEqual(false);
+    expect(maths.prime(0)).toEqual(false);
+    expect(maths.prime(1)).toEqual(false);
+    expect(maths.prime(100)).toEqual(false);
+    expect(maths.prime(103)).toEqual(true);
+  });
+
+  it("Next Prime after 3", function() {
+    expect(maths.nextPrime(3)).toEqual(5);
+  });
+
+  it("Next Prime after 98", function() {
+    expect(maths.nextPrime(98)).toEqual(101);
+  });
+
+  it("Prime factors of 13195", function() {
+    expect(maths.primeFactors(13195)).toEqual([5, 7, 13, 29]);
+  });
+
+  it("Euler3 Largest prime factor of 600851475143 is 6857", function() {
+    expect(maths.euler3(600851475143)).toEqual(6857);
+  });
+
 });
