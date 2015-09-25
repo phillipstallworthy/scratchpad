@@ -6,6 +6,7 @@
     </head>
     <script src="src/maths.js"></script>
     <script src="src/sort.js"></script>
+    <script src="src/excel.js"></script>
     <body>
         <h1>Euler</h1>
         <p>Multiplication</p>
@@ -49,6 +50,16 @@
     <div class="inline">
         <button onclick="document.getElementById('e2').innerHTML=
                          maths.euler2(e2limit.value)">
+            equals</button>
+    </div>
+
+    <p>Excel</p>
+    start <input id="excelx" type="number" value="">
+    end <input id="excely" type="number" value="">
+    <div id="excel" class="inline"></div>
+    <div class="inline">
+        <button onclick="document.getElementById('excel').innerHTML=
+                         excel.hack(excelx.value, excely.value)">
             equals</button>
     </div>
 
