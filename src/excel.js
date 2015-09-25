@@ -15,13 +15,14 @@ function excel() {
 excel.hack = function(x, y){
 
 
+  var column = "$P$";
   var output = "=";
   var i = x;
   for( i; i < y; i++){
-   output += "P" + i +"&"
+   output += column + i +"&"
   }
 
-  output += "P" + i;
+  output += column + i;
   return output;
 };
 
